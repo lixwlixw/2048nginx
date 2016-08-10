@@ -6,6 +6,8 @@
 
 # Pull base image.
 FROM ubuntu:14.04
+ENV TIME_ZONE=Asia/Shanghai
+RUN ln -snf /usr/share/zoneinfo/$TIME_ZONE /etc/localtime && echo $TIME_ZONE > /etc/timezone
 
 # Install soft prop common for add-apt-repository command
 RUN DEBIAN_FRONTEND=noninteractive apt-get -y install software-properties-common
